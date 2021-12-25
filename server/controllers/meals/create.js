@@ -23,7 +23,7 @@ exports.create = (req, res) => {
   };
 
   // Save Meal in the database
-  Meal.create(Meal)
+  Meal.create(meal)
     .then((data) => {
       res.status(201).send(data);
     })

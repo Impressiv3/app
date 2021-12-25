@@ -1,4 +1,4 @@
-const db = require("../../models");
+/* const db = require("../../models");
 const Meal = db.meals;
 const Op = db.Sequelize.Op;
 const { create } = require("./create");
@@ -24,3 +24,4 @@ exports.deleteAll = (req, res) => {};
 
 // Find all published Tutorials
 exports.findAllPublished = (req, res) => {};
+ */

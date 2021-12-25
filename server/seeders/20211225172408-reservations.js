@@ -7,7 +7,7 @@ module.exports = {
       [
         {
           mealId: 1,
-          seets_to_reserve: 6,
+          seats_to_reserve: 6,
           first_name: "Balint",
           last_name: "Szabad",
           email: "whatever@hotmail.com",
@@ -17,7 +17,7 @@ module.exports = {
         },
         {
           mealId: 11,
-          seets_to_reserve: 4,
+          seats_to_reserve: 4,
           first_name: "John",
           last_name: "Doe",
           email: "johndoe@hotmail.com",
@@ -27,7 +27,7 @@ module.exports = {
         },
         {
           mealId: 21,
-          seets_to_reserve: 4,
+          seats_to_reserve: 4,
           first_name: "John",
           last_name: "Doe",
           email: "johndoe@hotmail.com",
@@ -37,7 +37,7 @@ module.exports = {
         },
         {
           mealId: 31,
-          seets_to_reserve: 4,
+          seats_to_reserve: 4,
           first_name: "John",
           last_name: "Doe",
           email: "johndoe@hotmail.com",
