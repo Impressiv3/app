@@ -29,10 +29,10 @@ if (!isProduction) {
   app.use(errorhandler());
 }
 
-db.sequelize.sync({ alter: true }).then(() => {
-  console.log("Drop and re-sync db.");
+/* db.sequelize.sync({ alter: true }).then(() => {
+  console.log("Re-Sync Database");
 });
-
+ */
 app.use("/", routes);
 
 app.all("/*", (req, res) => {
