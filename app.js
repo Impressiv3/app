@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const logger = require("morgan");
 const helmet = require("helmet");
 const cors = require("cors");
@@ -28,7 +29,7 @@ if (!isProduction) {
 
 app.use("/", routes);
 
-app.get("/*", (req, res) => {
+app.all("/*", (req, res) => {
   res.status(200).sendFile(path.join(__dirname, "public", "index.html"));
 });
 
