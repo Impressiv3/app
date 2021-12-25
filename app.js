@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const logger = require("morgan");
@@ -6,12 +7,13 @@ const cors = require("cors");
 const compression = require("compression");
 const errorhandler = require("errorhandler");
 const cookieParser = require("cookie-parser");
-const routes = require("./server/routes/routes");
+const routes = require("./server/routes");
 const isProduction = process.env.NODE_ENV === "production";
 const app = express();
 const corsOptions = {
   origin: "http://localhost:8081",
 };
+const db = require("./server/models");
 
 app.use(logger("dev"));
 app.use(helmet());
@@ -26,6 +28,10 @@ app.use(express.static(__dirname + "/public"));
 if (!isProduction) {
   app.use(errorhandler());
 }
+
+db.sequelize.sync({ alter: true }).then(() => {
+  console.log("Drop and re-sync db.");
+});
 
 app.use("/", routes);
 

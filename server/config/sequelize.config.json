@@ -1,23 +1,29 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "database_development",
-    "host": "127.0.0.1",
+    "username": "b8f6aaac0d175e",
+    "password": "dd1d1802",
+    "database": "heroku_4b0836a115e3cc4",
+    "host": "eu-cdbr-west-02.cleardb.net",
+    "port": 3306,
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
+    "username": "b8f6aaac0d175e",
+    "password": "dd1d1802",
+    "database": "heroku_4b0836a115e3cc4",
+    "host": "eu-cdbr-west-02.cleardb.net",
+    "port": 3306,
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "use_env_variable": "CLEARDB_DATABASE_URL",
+    "dialect": "mysql",
+    "port": 3306,
+    "dialectOptions": {
+      "ssl": {
+        "rejectUnauthorized": false
+      }
+    }
   }
 }
+ 

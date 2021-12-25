@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const mealsRouter = require("./meals/mealsRouter");
+const mealsRouter = require("./meals");
 
 /* router.use("/", require("./users"));
 router.use("/profiles", require("./profiles"));
