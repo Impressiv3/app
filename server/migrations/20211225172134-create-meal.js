@@ -14,6 +14,21 @@ module.exports = {
       description: {
         type: Sequelize.TEXT
       },
+      location: {
+        type: Sequelize.TEXT
+      },
+      price: {
+        type: Sequelize.TEXT
+      },
+      max_seats: {
+        type: Sequelize.INTEGER
+      },
+      available_seats: {
+        type: Sequelize.INTEGER
+      },   
+      date: {
+        type: Sequelize.DATE
+      }, 
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
