@@ -1,27 +1,25 @@
-/* const db = require("../../models");
-const Meal = db.meals;
-const Op = db.Sequelize.Op;
-const { create } = require("./create");
-exports.create;
+const { Meal } = require('../../models');
 
-// Create and Save a new Tutorial
-exports.create;
+exports.get_all_meals = async (req, res, next) => {
+  await res.json({ message: "Get ALL MEALS" });
+};
 
-// Retrieve all Tutorials from the database.
-exports.findAll = (req, res) => {};
+/* exports.get_meal_by_id = async (req, res, next) => {
+  await res.json({ message: "all meals by id" });
+};  */
 
-// Find a single Tutorial with an id
-exports.findOne = (req, res) => {};
 
-// Update a Tutorial by the id in the request
-exports.update = (req, res) => {};
-
-// Delete a Tutorial with the specified id in the request
-exports.delete = (req, res) => {};
-
-// Delete all Tutorials from the database.
-exports.deleteAll = (req, res) => {};
-
-// Find all published Tutorials
-exports.findAllPublished = (req, res) => {};
- */
+exports.get_meal_by_id = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const meal = await Meal.findOne({
+            where: { id: id },
+        });
+        if (meal) {
+            return res.status(200).json({ meal });
+        }
+        return res.status(404).send('meal with the specified ID does not exists');
+    } catch (error) {
+        return res.status(500).send(error.message);
+    }
+} 
