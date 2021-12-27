@@ -1,28 +1,27 @@
 require("dotenv").config();
-const express = require("express"),
-  path = require("path"),
-  logger = require("morgan"),
-  helmet = require("helmet"),
-  cors = require("cors"),
-  compression = require("compression"),
-  errorhandler = require("errorhandler"),
-  cookieParser = require("cookie-parser"),
-  routes = require("./server/routes/routes"),
-  isProduction = process.env.NODE_ENV === "production",
-  app = express(),
-  corsOptions = {
+const express = require("express");
+const path = require("path");
+const logger = require("morgan");
+const helmet = require("helmet");
+const cors = require("cors");
+const compression = require("compression");
+const errorhandler = require("errorhandler");
+const cookieParser = require("cookie-parser");
+const routes = require("./server/routes/routes");
+const isProduction = process.env.NODE_ENV === "production";
+const app = express();
+const corsOptions = {
     origin: "http://localhost:8081",
   },
   db = require("./server/models/v1");
 
-app.use(logger("dev")),
-  helmet(),
-  cors(corsOptions),
-  compression(),
-  express.json(),
-  express.urlencoded({ extended: true }),
-  cookieParser(),
-  express.static(path.resolve(__dirname, "public"));
+app.use(logger("dev")), app.use(helmet());
+app.use(cors(corsOptions));
+app.use(compression());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+app.use(express.static(path.resolve(__dirname, "public")));
 
 if (!isProduction) {
   app.use(errorhandler());
@@ -32,13 +31,14 @@ if (!isProduction) {
   console.log("Re-Sync Database");
 }); */
 
-
 app.use("/", routes);
 
-app.use(express.static(path.resolve(__dirname,'public')));
-app.all("/*", (req, res) => {
+app.use(express.static(path.resolve(__dirname, "public")));
+
+app.get("/*", (req, res, next) => {
   res.status(200).sendFile(path.join(__dirname, "public", "index.html"));
-}); 
+  next();
+});
 
 /* app.all("/*", (req, res) => {
   res.status(200).sendFile(path.join(__dirname, "public", "index.html"));

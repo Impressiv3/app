@@ -1,8 +1,11 @@
 const { Meal } = require("../../../models/v1");
+const { body, check, validationResult } = require("express-validator");
+
 
 exports.get_meal_by_id = async (req, res) => {
-  try {
-    const { id } = req.params;
+  const { id } = req.params;
+
+ try {
     const meal = await Meal.findOne({
       where: { id: id },
     });
@@ -12,7 +15,7 @@ exports.get_meal_by_id = async (req, res) => {
           http: 200,
           code: "get_meal_by_id_200",
           error: false,
-          error_message: null,
+          errors: error,
           text: `Request: get_meal_by_id id: ${req.params.id}, succesfully completed.`,
           more_info: "https://www.localhost:8080/get_all_meals_200.pdf",
         },
@@ -24,7 +27,7 @@ exports.get_meal_by_id = async (req, res) => {
         http: 404,
         code: "get_meal_by_id_404",
         error: true,
-        error_message: error.message,
+        errors: error,
         text: `There was an error while fetching meal by id: ${req.params.id}.`,
         more_info: "https://www.localhost:8080/get_meal_by_id_404.pdf",
       },
@@ -36,11 +39,11 @@ exports.get_meal_by_id = async (req, res) => {
         http: 500,
         code: "get_meal_by_id_500",
         error: true,
-        error_message: error.message,
+        errors: error,
         text: `There was an error while fetching meal by id: ${req.params.id}`,
         more_info: "https://www.localhost:8080/get_meal_by_id_500.pdf",
       },
       data: [],
     });
-  }
+  } 
 };

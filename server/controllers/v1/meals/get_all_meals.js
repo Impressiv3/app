@@ -1,5 +1,7 @@
 const { Meal } = require("../../../models/v1");
 
+
+
 exports.get_all_meals = async (req, res) => {
   try {
     const meals = await Meal.findAll({});
