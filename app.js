@@ -7,13 +7,13 @@ const express = require("express"),
   compression = require("compression"),
   errorhandler = require("errorhandler"),
   cookieParser = require("cookie-parser"),
-  routes = require("./server/routes"),
+  routes = require("./server/routes/routes"),
   isProduction = process.env.NODE_ENV === "production",
   app = express(),
   corsOptions = {
     origin: "http://localhost:8081",
   },
-  db = require("./server/models");
+  db = require("./server/models/v1");
 
 app.use(logger("dev")),
   helmet(),

@@ -1,4 +1,4 @@
-const { Meal } = require("../../models");
+const { Meal } = require("../../../models");
 
 exports.deleteUser = async (req, res) => {
   try {

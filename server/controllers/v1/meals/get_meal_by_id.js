@@ -1,4 +1,4 @@
-const { Meal } = require("../../models");
+const { Meal } = require("../../../models/v1");
 
 exports.get_meal_by_id = async (req, res) => {
   try {

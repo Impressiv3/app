@@ -1,4 +1,4 @@
-const { Meal } = require("../../models");
+const { Meal } = require("../../../models/v1");
 
 exports.get_all_meals = async (req, res) => {
   try {
@@ -26,7 +26,5 @@ exports.get_all_meals = async (req, res) => {
       },
       data: [],
     });
-  } finally {
-    console.info("Query - get all meals finished -");
   }
 };

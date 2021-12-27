@@ -1,16 +1,14 @@
 const router = require("express").Router();
-const mealsRouter = require("./meals");
-
-/* router.use("/", require("./users"));
-router.use("/profiles", require("./profiles"));
-router.use("/articles", require("./articles"));
-router.use("/tags", require("./tags")); */
+const v1Router = require("./v1/v1Router");
 
 router.get("/", (req, res) => {
-  res.json({ message: "api here" });
+  res.json({
+    WARNING:
+      "A list if API endpoints can be found at: http://www.localhost/api-endpoins.html",
+  });
 });
 
-router.use("/meals", mealsRouter);
+router.use("/v1", v1Router);
 
 router.use(function (err, req, res, next) {
   if (err.name === "ValidationError") {
