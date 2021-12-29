@@ -1,10 +1,12 @@
 const router = require("express").Router();
-const mealsRouter = require("./meals/meals_router");
+const mealsRouter = require("./meals/meals.router");
 
 router.use("/meals", mealsRouter);
 
 router.get("/", (req, res) => {
-  res.json({ message: "Api version: 1.0" });
+  res.json({
+    WARNING: "A list if API endpoints can be found at: http://www.localhost/api-endpoins.html",
+  });
 });
 
 router.use(function (err, req, res, next) {

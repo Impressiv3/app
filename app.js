@@ -1,4 +1,5 @@
 require("dotenv").config();
+const isProduction = process.env.NODE_ENV === "production";
 const express = require("express");
 const path = require("path");
 const logger = require("morgan");
@@ -8,12 +9,11 @@ const compression = require("compression");
 const errorhandler = require("errorhandler");
 const cookieParser = require("cookie-parser");
 const routes = require("./server/routes/routes");
-const isProduction = process.env.NODE_ENV === "production";
 const app = express();
 const corsOptions = {
     origin: "http://localhost:8081",
   },
-  db = require("./server/models/v1");
+  db = require("./server/models");
 
 app.use(logger("dev")), app.use(helmet());
 app.use(cors(corsOptions));
@@ -32,8 +32,6 @@ if (!isProduction) {
 }); */
 
 app.use("/", routes);
-
-app.use(express.static(path.resolve(__dirname, "public")));
 
 app.get("/*", (req, res, next) => {
   res.status(200).sendFile(path.join(__dirname, "public", "index.html"));
