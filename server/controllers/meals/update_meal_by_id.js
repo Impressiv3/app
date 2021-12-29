@@ -20,8 +20,6 @@ exports.update_meal_by_id = async (req, res, next) => {
     });
   }
 
-
-
   try {
     const meal = {
       title: title,
@@ -30,7 +28,7 @@ exports.update_meal_by_id = async (req, res, next) => {
       price: price,
       max_seats: max_seats,
       available_seats: available_seats,
-      date: date      
+      date: date,
     };
 
     const updated = await Meal.update(meal, {
@@ -50,8 +48,7 @@ exports.update_meal_by_id = async (req, res, next) => {
         },
         data: [updatedMeal],
       });
-    } 
-  
+    }
   } catch (error) {
     return res.status(500).json({
       meta: {
