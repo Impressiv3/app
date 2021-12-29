@@ -40,6 +40,11 @@ exports.validate_meal = (method) => {
         param("id").optional().trim().escape().toInt().isInt().withMessage("Id must be a number.")
       ];
     }
+    case "get_all_reservations_by_meal_id": {
+      return [
+        param("id").optional().trim().escape().toInt().isInt().withMessage("Id must be a number.")
+      ];
+    }
   }
 };
 

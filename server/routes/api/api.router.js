@@ -1,7 +1,11 @@
 const router = require("express").Router();
 const mealsRouter = require("./meals/meals.router");
+const reviewsRouter = require("./reviews/reviews.router");
+const  reservationsRouter = require("./reservations/reservations.router");
 
 router.use("/meals", mealsRouter);
+router.use("/reviews", reviewsRouter);
+router.use("/reservations", reservationsRouter);
 
 router.get("/", (req, res) => {
   res.json({
