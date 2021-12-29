@@ -7,6 +7,21 @@ exports.validate_reservation = (method) => {
 
       ];
     }
+    case "delete_reservation_by_id": {
+      return [
+
+      ];
+    }
+    case "get_all_reservations_filtered": {
+      return [
+
+      ];
+    }
+    case "get_reservation_by_id": {
+      return [
+
+      ];
+    }
   }
 };
 

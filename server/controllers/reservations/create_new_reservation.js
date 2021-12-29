@@ -2,7 +2,7 @@ const { Reservation } = require("../../models");
 const { validationResult } = require("express-validator");
 
 exports.create_new_reservation = async (req, res, next) => {
-  const { seats_to_reserve, mealId } = req.body;
+  const { first_name, last_name, email, phone, seats_to_reserve, mealId } = req.body;
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
@@ -21,6 +21,10 @@ exports.create_new_reservation = async (req, res, next) => {
 
   try {
     const reservation = {
+      first_name: first_name,
+      last_name: last_name,
+      email: email,
+      phone: phone,
       seats_to_reserve : seats_to_reserve,
       mealId: mealId
     };
