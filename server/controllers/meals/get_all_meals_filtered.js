@@ -33,7 +33,6 @@ exports.get_all_meals_filtered = async (req, res, next) => {
     const meals = await Meal.findAll({
       where: condition,
       limit: limit,
-      order: ["id", "ASC"],
     });
 
     return res.status(200).json({

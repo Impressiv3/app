@@ -1,16 +1,10 @@
 {
   "development": {
-    "username": "b8f6aaac0d175e",
-    "password": "dd1d1802",
-    "database": "heroku_4b0836a115e3cc4",
-    "host": "eu-cdbr-west-02.cleardb.net",
+    "use_env_variable": "CLEARDB_DATABASE_URL",
     "dialect": "mysql"
   },
   "test": {
-    "username": "b8f6aaac0d175e",
-    "password": "dd1d1802",
-    "database": "heroku_4b0836a115e3cc4",
-    "host": "eu-cdbr-west-02.cleardb.net",
+    "use_env_variable": "CLEARDB_DATABASE_URL",
     "dialect": "mysql"
   },
   "production": {
