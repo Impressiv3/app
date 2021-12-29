@@ -22,6 +22,11 @@ exports.validate_reservation = (method) => {
 
       ];
     }
+    case "update_reservation_by_id": {
+      return [
+
+      ];
+    }
   }
 };
 

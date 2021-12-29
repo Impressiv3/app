@@ -45,6 +45,11 @@ exports.validate_meal = (method) => {
         param("id").optional().trim().escape().toInt().isInt().withMessage("Id must be a number.")
       ];
     }
+    case "update_meal_by_id": {
+      return [
+        param("id").optional().trim().escape().toInt().isInt().withMessage("Id must be a number.")
+      ];
+    }
   }
 };
 
