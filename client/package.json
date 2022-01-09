@@ -6,6 +6,7 @@
   "proxy": "http://localhost:8081/",
   "dependencies": {
     "@babel/core": "^7.16.0",
+    "@craco/craco": "^5.9.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
     "@svgr/webpack": "^6.1.2",
     "@testing-library/jest-dom": "^5.16.1",
@@ -45,6 +46,7 @@
     "react-dev-utils": "^12.0.0",
     "react-dom": "^17.0.2",
     "react-refresh": "^0.11.0",
+    "react-router-dom": "^6.2.1",
     "resolve": "^1.20.0",
     "resolve-url-loader": "^4.0.0",
     "sass-loader": "^12.3.0",
@@ -136,10 +138,5 @@
     "presets": [
       "react-app"
     ]
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.4.0",
-    "postcss": "^8.4.5",
-    "tailwindcss": "^3.0.7"
   }
 }

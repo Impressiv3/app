@@ -15,7 +15,7 @@ exports.create_new_meal = async (req, res, next) => {
         text: "Request: create_new_meal failed.",
         more_info: "https://www.localhost:8080/create_new_meal_422.pdf",
       },
-      data: [],
+      data: {},
     });
   }
 
@@ -41,7 +41,7 @@ exports.create_new_meal = async (req, res, next) => {
         text: "Request: create_new_meal completed.",
         more_info: "https://www.localhost:8080/create_new_meal_201.pdf",
       },
-      data: [newMeal],
+      data: newMeal,
     });
   } catch (error) {
     return res.status(500).json({
@@ -53,7 +53,7 @@ exports.create_new_meal = async (req, res, next) => {
         text: "Request: create_new_meal failed due to server error.",
         more_info: "https://www.localhost:8080/create_new_meal_500.pdf",
       },
-      data: [],
+      data: {},
     });
   }
 };

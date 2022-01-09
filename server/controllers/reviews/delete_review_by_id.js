@@ -17,7 +17,7 @@ exports.delete_review_by_id = async (req, res, next) => {
         text: "Request: delete_review_by_id failed.",
         more_info: "https://www.localhost:8080/create_new_review_422.pdf",
       },
-      data: [],
+      data: {},
     });
   }
 
@@ -36,7 +36,7 @@ exports.delete_review_by_id = async (req, res, next) => {
           text: "Request: delete_review_by_id completed.",
           more_info: "https://www.localhost:8080/delete_review_by_id_200.pdf",
         },
-        data: [deleted_review_by_id],
+        data: deleted_review_by_id,
       });
     }
 
@@ -49,7 +49,7 @@ exports.delete_review_by_id = async (req, res, next) => {
         text: "Request: delete_review_by_id couldn't find any match.",
         more_info: "https://www.localhost:8080/delete_review_by_id_404.pdf",
       },
-      data: [],
+      data: {},
     });
   } catch (error) {
     return res.status(500).json({
@@ -61,7 +61,7 @@ exports.delete_review_by_id = async (req, res, next) => {
         text: "Request: delete_review_by_id failed due to server error.",
         more_info: "https://www.localhost:8080/get_all_reviews_filtered_500.pdf",
       },
-      data: [],
+      data: {},
     });
   }
 };

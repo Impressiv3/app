@@ -11,13 +11,13 @@ exports.get_meal_by_id = async (req, res, next) => {
     return res.status(422).json({
       meta: {
         http: 422,
-        code: "create_new_meal_422",
+        code: "get_meal_by_id_422",
         error: true,
         errors: errors.array(),
         text: "Request: get_meal_by_id failed.",
-        more_info: "https://www.localhost:8080/create_new_meal_422.pdf",
+        more_info: "https://www.localhost:8080/get_meal_by_id_422.pdf",
       },
-      data: [],
+      data: {},
     });
   }
 
@@ -34,7 +34,7 @@ exports.get_meal_by_id = async (req, res, next) => {
           text: "Request: get_meal_by_id completed.",
           more_info: "https://www.localhost:8080/get_meal_by_id_200.pdf",
         },
-        data: [meal_by_id],
+        data: meal_by_id,
       });
     }
 
@@ -47,8 +47,9 @@ exports.get_meal_by_id = async (req, res, next) => {
         text: "Request: get_meal_by_id couldn't find any match.",
         more_info: "https://www.localhost:8080/get_meal_by_id_404.pdf",
       },
-      data: [],
+      data: {},
     });
+
   } catch (error) {
     return res.status(500).json({
       meta: {
@@ -59,7 +60,7 @@ exports.get_meal_by_id = async (req, res, next) => {
         text: "Request: get_meal_by_id failed due to server error.",
         more_info: "https://www.localhost:8080/get_all_meals_filtered_500.pdf",
       },
-      data: [],
+      data: {},
     });
   }
 };

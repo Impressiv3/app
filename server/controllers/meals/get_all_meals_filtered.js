@@ -18,7 +18,7 @@ exports.get_all_meals_filtered = async (req, res, next) => {
         text: "Request: get_all_meals_filtered failed.",
         more_info: "https://www.localhost:8080/create_new_meal_422.pdf",
       },
-      data: [],
+      data: {},
     });
   }
 
@@ -44,7 +44,7 @@ exports.get_all_meals_filtered = async (req, res, next) => {
         text: "Request: get_all_meals_filtered completed.",
         more_info: "https://www.localhost:8080/get_all_meals_filtered_200.pdf",
       },
-      data: [meals],
+      data: meals,
     });
   } catch (error) {
     return res.status(500).json({
@@ -56,7 +56,7 @@ exports.get_all_meals_filtered = async (req, res, next) => {
         text: "Request: get_all_meals_filtered failed due to server error.",
         more_info: "https://www.localhost:8080/get_all_meals_filtered_500.pdf",
       },
-      data: [],
+      data: {},
     });
   }
 };

@@ -16,7 +16,7 @@ exports.update_reservation_by_id = async (req, res, next) => {
         text: "Request: update_reservation_by_id failed.",
         more_info: "https://www.localhost:8080/update_reservation_by_id_422.pdf",
       },
-      data: [],
+      data: {},
     });
   }
 
@@ -44,7 +44,7 @@ exports.update_reservation_by_id = async (req, res, next) => {
           text: "Request: update_reservation_by_id completed.",
           more_info: "https://www.localhost:8080/update_reservation_by_id_201.pdf",
         },
-        data: [updatedreservation],
+        data: updatedreservation,
       });
     }
   } catch (error) {
@@ -57,7 +57,7 @@ exports.update_reservation_by_id = async (req, res, next) => {
         text: "Request: update_reservation_by_id failed due to server error.",
         more_info: "https://www.localhost:8080/update_reservation_by_id_500.pdf",
       },
-      data: [],
+      data: {},
     });
   }
 };
