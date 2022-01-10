@@ -1,8 +1,9 @@
 /* eslint-disable import/no-anonymous-default-export */
 const MEALSURL = "http://localhost:8080/api/meals";
 
-const get = id => {
-  return fetch(`${MEALSURL}/${id}`).then((response) => response.json());
+const get = async id => {
+  const response = await fetch(`${MEALSURL}/${id}`);
+  return await response.json();
 };
 
 const getAll = async () => {
@@ -20,8 +21,15 @@ const create = async (data) => {
   })
 };
 
+const update = async (id, data) => {
+  const response = await fetch(`${MEALSURL}/${id}`, data);
+  return await response.json();
+};
+
+
 export default {
   get,
   getAll,
   create,
+  update
 };

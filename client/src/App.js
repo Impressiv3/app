@@ -6,7 +6,7 @@ import Meals from "./pages/Meals";
 import Reservation from "./pages/Reservation";
 import Reviews from "./pages/Reviews";
 import AddMeal from "./pages/AddMeal";
-import MealDetails from "./components/MealDetails";
+import MealReservation from "./components/MealReservation";
 import NoMatch from "./pages/NoMatch";
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
           <Route path='reservation' element={<Reservation />} />
           <Route path='reviews' element={<Reviews />} />
           <Route path='add' element={<AddMeal />} />
-          <Route path='meal/:mealId' element={<MealDetails />} />
+          <Route path='meal/:mealId' element={<MealReservation />} />
           <Route path='*' element={<NoMatch />} />
         </Route>
       </Routes>
