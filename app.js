@@ -12,9 +12,8 @@ const cookieParser = require("cookie-parser");
 const routes = require("./server/routes/routes");
 const app = express();
 const corsOptions = {
-    origin: "https://share-meal.herokuapp.com/",
-  },
-  db = require("./server/models");
+  origin: "https://share-meal.herokuapp.com/",
+};
 
 app.use(logger("dev")), app.use(helmet());
 app.use(cors(corsOptions));
