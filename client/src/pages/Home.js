@@ -1,9 +1,9 @@
-import Hero from "../components/Hero"
+import MealsFiltered from "../components/MealsFiltered"
 
 const Home = () => {
   return (
     <div className="home">
-      <Hero />
+      <MealsFiltered />
     </div>
   );
 }

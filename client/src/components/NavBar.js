@@ -1,6 +1,6 @@
 import "../styles/NavBar.css";
 import React, { useState } from "react";
-import { BrowserRouter, Routes, Route, Outlet, Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function NavBar() {
   const [click, setClick] = useState(false);

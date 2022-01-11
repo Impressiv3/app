@@ -1,14 +1,13 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import image1 from "../assets/images/1.jpg";
+import image2 from "../assets/images/2.jpg";
+import image3 from "../assets/images/3.jpg";
+import image4 from "../assets/images/4.jpg";
+import image5 from "../assets/images/5.jpg";
 
 const Meal = ({ meal }) => {
-  const imagesArray = [
-    "https://www.englishclub.com/images/vocabulary/food/italian/italian-food-1024.jpg",
-    "https://www.thavornpalmbeach.com/news/wp-content/uploads/2015/12/Tips-to-Kick-the-Junk-Food-Habit-.jpg",
-    "https://post.healthline.com/wp-content/uploads/2020/08/raw-vegan-meal-thumb_0-1.jpg",
-    "https://www.maangchi.com/wp-content/uploads/2020/12/la-galbi-scaled.jpg",
-    "https://www.pachd.com/free-images/food-images/japanese-food-05.jpg",
-  ];
+  const imagesArray = [image1, image2, image3, image4, image5];
 
   const randomImage = (imagesArray) => {
     return imagesArray[Math.floor(Math.random() * imagesArray.length) + 0];

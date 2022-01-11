@@ -308,11 +308,24 @@ img {
 }
 
 .add-reservation-form {
-  margin: 1rem;
-  padding: 4rem;
-  background: rgba(255, 255, 255, 0.63);
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  margin: 1rem;
+  padding: 4rem;
+  background: rgba(255, 255, 255, 0.63);
   border-radius: 20px;
+}
+
+.meals-filtered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  min-height: 91vh;
+  background: rgba(255, 255, 255, 0.63);
+  padding: 2rem;
+  border-radius: 0 0 20px 20px;
 }

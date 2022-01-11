@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import Meal from "./Meal";
 import Spinner from "./Spinner";
 import MealDataService from "../services/Meal.service";
 import ReservationDataService from "../services/Reservation.service.js";
@@ -33,8 +32,6 @@ const MealDetails = () => {
   const [error, setError] = useState(null);
   const [submited, setSubmited] = useState(false);
 
-
-
   useEffect(() => {
     retrieveMealById();
   }, []);
@@ -43,20 +40,8 @@ const MealDetails = () => {
     event.preventDefault();
     const { name, value } = event.target;
     setReservation({ ...reservation, [name]: value });
-    event.preventDefault();
   };
 
-  const imagesArray = [
-    "https://www.englishclub.com/images/vocabulary/food/italian/italian-food-1024.jpg",
-    "https://www.thavornpalmbeach.com/news/wp-content/uploads/2015/12/Tips-to-Kick-the-Junk-Food-Habit-.jpg",
-    "https://post.healthline.com/wp-content/uploads/2020/08/raw-vegan-meal-thumb_0-1.jpg",
-    "https://www.maangchi.com/wp-content/uploads/2020/12/la-galbi-scaled.jpg",
-    "https://www.pachd.com/free-images/food-images/japanese-food-05.jpg",
-  ];
-
-  const randomImage = (imagesArray) => {
-    return imagesArray[Math.floor(Math.random() * imagesArray.length) + 0];
-  };
 
   const retrieveMealById = () => {
     setLoading(true);
@@ -85,6 +70,17 @@ const MealDetails = () => {
       seats_to_reserve: parseInt(reservation.seats_to_reserve),
     };
 
+    MealDataService.update(meal.id, {
+      available_seats: meal.available_seats - reservation.seats_to_reserve,
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          setError(response.meta.errors);
+        }
+      })
+      .catch((error) => console.log(error));
+
     ReservationDataService.create(data)
       .then((response) => response.json())
       .then((response) => {
@@ -98,9 +94,9 @@ const MealDetails = () => {
 
   return (
     <div>
+      {loading && <Spinner />}
       <li className='meal-detail'>
         <h2>{meal.title}</h2>
-
         <p>{meal.description}</p>
         <h4>Location: {meal.location}</h4>
         <h4>Available seats: {meal.available_seats}</h4>
@@ -153,7 +149,7 @@ const MealDetails = () => {
             id='seats_to_reserve'
             name='seats_to_reserve'
             required
-            min="1"
+            min='1'
             max={meal.available_seats}
             value={reservation.seats_to_reserve}
             onChange={handleInputChange}
@@ -162,17 +158,16 @@ const MealDetails = () => {
             Reserve Meal
           </button>
         </fieldset>
+
+        {submited && !error && <p>Your reservation was successfull.</p>}
+        {error && (
+          <ul style={{ color: "red" }}>
+            {error.map((err, index) => (
+              <li key={index}>{err.msg}</li>
+            ))}
+          </ul>
+        )}
       </form>
-      <div>
-          {submited && !error && <p>Your reservation was successfull.</p>}
-          {error && (
-            <ul style={{ color: "red" }}>
-              {error.map((err, index) => (
-                <li key={index}>{err.msg}</li>
-              ))}
-            </ul>
-          )}
-        </div>
     </div>
   );
 };
