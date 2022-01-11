@@ -2,14 +2,14 @@
   "name": "app",
   "version": "0.1.0",
   "private": true,
-  "main": "./bin/www.js",
+  "main": "./bin/www",
   "scripts": {
-    "start": "node app.js",
-    "server": "nodemon ./bin/www",
-    "client": "cd client && npm start",
+    "start": "node ./bin/www",
+    "server": "npm start",
+    "client": "npm start --prefix client",
     "dev": "nodemon ./bin/www",
     "dev-all": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false cd client && npm install && npm run build"
+    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false cd client && npm install && npm run build"   
   },
   "dependencies": {
     "compression": "^1.7.4",
