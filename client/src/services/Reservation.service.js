@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-const RESERVATIONS_URL = "http://localhost:8080/api/reservations";
+const RESERVATIONS_URL = "https://share-meal.herokuapp.com/api/reservations";
 
 const get = id => {
   return fetch(`${RESERVATIONS_URL}/${id}`).then((response) => response.json());
