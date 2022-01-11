@@ -15,7 +15,7 @@ exports.create_new_reservation = async (req, res, next) => {
         text: "Request: create_new_reservation failed.",
         more_info: "https://www.localhost:8080/create_new_reservation_422.pdf",
       },
-      data: [],
+      data: {},
     });
   }
 
@@ -40,7 +40,7 @@ exports.create_new_reservation = async (req, res, next) => {
         text: "Request: create_new_reservation completed.",
         more_info: "https://www.localhost:8080/create_new_reservation_201.pdf",
       },
-      data: [newReservation],
+      data: newReservation,
     });
   } catch (error) {
     return res.status(500).json({
@@ -52,7 +52,7 @@ exports.create_new_reservation = async (req, res, next) => {
         text: "Request: create_new_reservation failed due to server error.",
         more_info: "https://www.localhost:8080/create_new_reservation_500.pdf",
       },
-      data: [],
+      data: {},
     });
   }
 };

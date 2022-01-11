@@ -18,7 +18,7 @@ exports.get_all_reviews_filtered = async (req, res, next) => {
         text: "Request: get_all_reviews_filtered failed.",
         more_info: "https://www.localhost:8080/get_all_reviews_filtered_422.pdf",
       },
-      data: [],
+      data: {},
     });
   }
 
@@ -39,7 +39,7 @@ exports.get_all_reviews_filtered = async (req, res, next) => {
         text: "Request: get_all_reviews_filtered completed.",
         more_info: "https://www.localhost:8080/get_all_reviews_filtered_200.pdf",
       },
-      data: [reviews],
+      data: reviews,
     });
   } catch (error) {
     return res.status(500).json({
@@ -51,7 +51,7 @@ exports.get_all_reviews_filtered = async (req, res, next) => {
         text: "Request: get_all_reviews_filtered failed due to server error.",
         more_info: "https://www.localhost:8080/get_all_reviews_filtered_500.pdf",
       },
-      data: [],
+      data: {},
     });
   }
 };

@@ -17,7 +17,7 @@ exports.get_review_by_id = async (req, res, next) => {
         text: "Request: get_meal_by_id failed.",
         more_info: "https://www.localhost:8080/get_review_by_id_422.pdf",
       },
-      data: [],
+      data: {},
     });
   }
 
@@ -34,7 +34,7 @@ exports.get_review_by_id = async (req, res, next) => {
           text: "Request: get_review_by_id completed.",
           more_info: "https://www.localhost:8080/get_review_by_id_200.pdf",
         },
-        data: [review_by_id],
+        data: review_by_id,
       });
     }
 
@@ -47,7 +47,7 @@ exports.get_review_by_id = async (req, res, next) => {
         text: "Request: get_review_by_id couldn't find any match.",
         more_info: "https://www.localhost:8080/get_review_by_id_404.pdf",
       },
-      data: [],
+      data: {},
     });
   } catch (error) {
     return res.status(500).json({
@@ -59,7 +59,7 @@ exports.get_review_by_id = async (req, res, next) => {
         text: "Request: get_review_by_id failed due to server error.",
         more_info: "https://www.localhost:8080/get_review_by_id_500.pdf",
       },
-      data: [],
+      data: {},
     });
   }
 };

@@ -15,7 +15,7 @@ exports.create_new_review = async (req, res, next) => {
         text: "Request: create_new_review failed.",
         more_info: "https://www.localhost:8080/create_new_review_422.pdf",
       },
-      data: [],
+      data: {},
     });
   }
 
@@ -38,7 +38,7 @@ exports.create_new_review = async (req, res, next) => {
         text: "Request: create_new_review completed.",
         more_info: "https://www.localhost:8080/create_new_review_201.pdf",
       },
-      data: [newReview],
+      data: newReview,
     });
   } catch (error) {
     return res.status(500).json({
@@ -50,7 +50,7 @@ exports.create_new_review = async (req, res, next) => {
         text: "Request: create_new_review failed due to server error.",
         more_info: "https://www.localhost:8080/create_new_review_500.pdf",
       },
-      data: [],
+      data: {},
     });
   }
 };
