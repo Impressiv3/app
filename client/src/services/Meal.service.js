@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-const MEALSURL = "http://localhost:8080/api/meals";
+const MEALSURL = "https://share-meal.herokuapp.com/api/meals";
 
 const get = async id => {
   return fetch(`${MEALSURL}/${id}`).then((response) => response.json());
